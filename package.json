@@ -1,0 +1,27 @@
+{
+  "name": "api_policlinica",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sudo-apt-install-Steven/API_Policlinica.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sudo-apt-install-Steven/API_Policlinica/issues"
+  },
+  "homepage": "https://github.com/sudo-apt-install-Steven/API_Policlinica#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mysql2": "^3.15.3"
+  }
+}
