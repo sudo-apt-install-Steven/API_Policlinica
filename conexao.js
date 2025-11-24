@@ -3,7 +3,7 @@ import mysql from 'mysql2/promise';
 const configuracaoDB = {
     host: 'localhost',
     user: 'root',
-    password: 'task2019',
+    password: '****',
     database: 'clinica',
     waitForConnections: true, // pro tratamento de erros funcionar melhor.
     connectionLimit: 10,

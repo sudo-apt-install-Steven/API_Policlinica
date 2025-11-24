@@ -1,12 +1,12 @@
 import express from 'express';
 import { buscarTodosMedicos, buscarMedicosPorNome, buscarMedicosPorEspecialidade } from './servico/retornaMedicos_servico.js';
 
-const servidor = express();
+const app = express();
 const PORTA = 3000;
 
-servidor.use(express.json());
+app.use(express.json());
 
-servidor.use((erro, requisicao, resposta, proximo) => {
+app.use((erro, requisicao, resposta, proximo) => {
     console.error('Erro não tratado:', erro);
     resposta.status(500).json({
         erro: 'Erro interno do servidor',
@@ -14,7 +14,7 @@ servidor.use((erro, requisicao, resposta, proximo) => {
     });
 });
 
-servidor.get('/medicos', async (requisicao, resposta) => {
+app.get('/medicos', async (requisicao, resposta) => {
     try {
         const parametros = requisicao.query;
         let dadosMedicos;
@@ -53,14 +53,14 @@ servidor.get('/medicos', async (requisicao, resposta) => {
     }
 });
 
-servidor.use((requisicao, resposta) => {
+app.use((requisicao, resposta) => {
     resposta.status(404).json({
         erro: 'Rota não encontrada',
         mensagem: `A rota ${requisicao.method} ${requisicao.url} não existe`
     });
 });
 
-servidor.listen(PORTA, () => {
+app.listen(PORTA, () => {
     console.log(`API da Policlínica rodando em http://localhost:${PORTA}`);
     console.log(`Rotas disponíveis:`);
     console.log(`  - GET /medicos - Lista todos os médicos`);
